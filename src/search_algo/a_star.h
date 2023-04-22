@@ -1,87 +1,54 @@
 #ifndef SEARCH_ALGO
 #define SEARCH_ALGO
-#include <queue>
 #include <utility>
-	
-#include "constants.h"
-#include "a_star_helper.h"
+#include <queue>
+#include <vector>
+#include <iostream>
+
+
+#include "bpt+/map.h"
 
 using namespace std;
 
-/*From redblobgames "Introuction to A* algorithm"
+/*From redblobgames "Introuction to A* algorithm && Implement A*" */
 
-frontier = PriorityQueue()
-frontier.put(start, 0)
-came_from = dict()
-cost_so_far = dict()
-came_from[start] = None
-cost_so_far[start] = 0
 
-while not frontier.empty():
-   current = frontier.get()
+template<typename Location, typename Graph>
+void a_star_search
+  (Graph graph,
+   Location start,
+   Location goal,
+   Map<Location, Location>& came_from,
+   Map<Location, double>& cost_so_far)
+{
+typedef pair<double, Location> pqelement ;
+  priority_queue<pqelement, vector<pqelement>, greater<pqelement>> frontier;
+  frontier.emplace(pqelement(0, start));
 
-   if current == goal:
-      break
-   
-   for next in graph.neighbors(current):
-      new_cost = cost_so_far[current] + graph.cost(current, next)
-      if next not in cost_so_far or new_cost < cost_so_far[next]:
-         cost_so_far[next] = new_cost
-         priority = new_cost + heuristic(goal, next)
-         frontier.put(next, priority)
-         came_from[next] = current
-*/
+  came_from[start] = start;
+  cost_so_far[start] = 0;
+  
+  while (!frontier.empty()) {
+   Location current = frontier.top().second;
+   frontier.pop();
 
-typedef double priority;
+   if (current == goal) {
+      break;
+   }
 
-bool operator <(pair<double, node> lhs, pair<double, node> rhs){
-    return lhs.first > rhs.first;
+
+   for (Location next : graph.neighbors(current)) {
+      double new_cost = cost_so_far[current] + graph.cost(current, next);
+      if (cost_so_far.find(next) == cost_so_far.end()
+         || new_cost < cost_so_far[next]) {
+         cost_so_far[next] = new_cost;
+         double priority = new_cost + graph.heuristic(next, goal);
+         frontier.emplace(pqelement(priority, next));
+         came_from[next] = current;
+      }
+   }
+  }
 }
 
-bool a_star(long graph[][COL], const node& start, const node& goal){
-    priority_queue<pair<double, node>>frontier;
-    Map<node, double> cost_so_far;
-    Map<node, node> came_from;
 
-
-    //init
-    frontier.push(pair<double,node>(0, start));
-    node noll;
-    came_from[start] = noll;
-    cost_so_far[start] = 0;
-
-
-
-    if(!is_valid(start) || is_blocked(graph, start)|| !is_valid(goal) || is_blocked(graph, goal)){
-        cout << "start/goal is blocked/not valid\n";
-        return false;       //If goal/start is not a valid node;
-    }
-    
-    while (!frontier.empty())
-    {   
-        auto current = frontier.top();
-        frontier.pop();
-        if(current.second == goal) {
-            print_path(came_from, goal);
-            return true;
-        }
-        for(node next : its_neighbor(current.second)){
-
-            double new_cost = cost_so_far[current.second] + 1;
-
-            if(is_valid(next) && !is_blocked(graph, next))
-                if(!cost_so_far.contains(next)|| new_cost < (cost_so_far[next])){
-                    cost_so_far[next] = new_cost;
-                    cout << "next: " << next << " , cost: " << new_cost << ", from: "  << current.second << endl;
-                    double priority = new_cost + hueristic(next, goal);
-                    came_from[next] = current.second;
-                    frontier.emplace(pair<double,node>(priority, next));
-                }
-        }
-
-    }
-
-    cout << "Path Not found!\n";
-    return false;
-}
 #endif

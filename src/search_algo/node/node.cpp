@@ -2,24 +2,24 @@
 
 
 bool operator ==(const node& lhs, const node& rhs){
-    return lhs.i == rhs.i && lhs.j == rhs.j;
+    return lhs.x == rhs.x && lhs.y == rhs.y;
 }
 
 bool operator <(const node& lhs, const node& rhs){
-    if(lhs.i < rhs.i) return true;
-    if(lhs.i > rhs.i) return false;
-    if(lhs.j < rhs.j) return true;  
-    if(lhs.j > rhs.j) return false;  
+    if(lhs.x < rhs.x) return true;
+    if(lhs.x > rhs.x) return false;
+    if(lhs.y < rhs.y) return true;  
+    if(lhs.y > rhs.y) return false;  
     return false;
 }
 
-bool operator >(const node& lhs, const node& rhs){
-    if(lhs.i < rhs.i) return false;
-    if(lhs.i > rhs.i) return true;
-    if(lhs.j < rhs.j) return false;  
-    if(lhs.j > rhs.j) return true;  
-    return false;
-}
+// bool operator >(const node& lhs, const node& rhs){
+//     if(lhs.x < rhs.x) return false;
+//     if(lhs.x > rhs.x) return true;
+//     if(lhs.y < rhs.y) return false;  
+//     if(lhs.y > rhs.y) return true;  
+//     return false;
+// }
 
  bool operator <=(const node& lhs, const node& rhs){
     return lhs < rhs || lhs == rhs;
@@ -30,6 +30,10 @@ bool operator >(const node& lhs, const node& rhs){
 
 
 ostream& operator <<(ostream& outs, const node& me){
-    outs << "(" << me.i << "," << me.j << ")";
+    outs << "(" << me.x << "," << me.y << ")";
     return outs;
+}
+
+node operator -(const node& lhs, const node& rhs){
+    return {lhs.x -rhs.x, lhs.y - rhs.y};
 }
