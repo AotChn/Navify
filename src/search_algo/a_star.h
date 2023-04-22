@@ -32,56 +32,56 @@ while not frontier.empty():
          came_from[next] = current
 */
 
-typedef double priority;
+// typedef double priority;
 
-bool operator <(pair<double, node> lhs, pair<double, node> rhs){
-    return lhs.first > rhs.first;
-}
+// bool operator <(pair<double, node> lhs, pair<double, node> rhs){
+//     return lhs.first > rhs.first;
+// }
 
-bool a_star(long graph[][COL], const node& start, const node& goal){
-    priority_queue<pair<double, node>>frontier;
-    Map<node, double> cost_so_far;
-    Map<node, node> came_from;
-
-
-    //init
-    frontier.push(pair<double,node>(0, start));
-    node noll;
-    came_from[start] = noll;
-    cost_so_far[start] = 0;
+// bool a_star(long graph[][COL], const node& start, const node& goal){
+//     priority_queue<pair<double, node>>frontier;
+//     Map<node, double> cost_so_far;
+//     Map<node, node> came_from;
 
 
+//     //init
+//     frontier.push(pair<double,node>(0, start));
+//     node noll;
+//     came_from[start] = noll;
+//     cost_so_far[start] = 0;
 
-    if(!is_valid(start) || is_blocked(graph, start)|| !is_valid(goal) || is_blocked(graph, goal)){
-        cout << "start/goal is blocked/not valid\n";
-        return false;       //If goal/start is not a valid node;
-    }
+
+
+//     if(!is_valid(start) || is_blocked(graph, start)|| !is_valid(goal) || is_blocked(graph, goal)){
+//         cout << "start/goal is blocked/not valid\n";
+//         return false;       //If goal/start is not a valid node;
+//     }
     
-    while (!frontier.empty())
-    {   
-        auto current = frontier.top();
-        frontier.pop();
-        if(current.second == goal) {
-            print_path(came_from, goal);
-            return true;
-        }
-        for(node next : its_neighbor(current.second)){
+//     while (!frontier.empty())
+//     {   
+//         auto current = frontier.top();
+//         frontier.pop();
+//         if(current.second == goal) {
+//             print_path(came_from, goal);
+//             return true;
+//         }
+//         for(node next : its_neighbor(current.second)){
 
-            double new_cost = cost_so_far[current.second] + 1;
+//             double new_cost = cost_so_far[current.second] + 1;
 
-            if(is_valid(next) && !is_blocked(graph, next))
-                if(!cost_so_far.contains(next)|| new_cost < (cost_so_far[next])){
-                    cost_so_far[next] = new_cost;
-                    cout << "next: " << next << " , cost: " << new_cost << ", from: "  << current.second << endl;
-                    double priority = new_cost + hueristic(next, goal);
-                    came_from[next] = current.second;
-                    frontier.emplace(pair<double,node>(priority, next));
-                }
-        }
+//             if(is_valid(next) && !is_blocked(graph, next))
+//                 if(!cost_so_far.contains(next)|| new_cost < (cost_so_far[next])){
+//                     cost_so_far[next] = new_cost;
+//                     cout << "next: " << next << " , cost: " << new_cost << ", from: "  << current.second << endl;
+//                     double priority = new_cost + hueristic(next, goal);
+//                     came_from[next] = current.second;
+//                     frontier.emplace(pair<double,node>(priority, next));
+//                 }
+//         }
 
-    }
+//     }
 
-    cout << "Path Not found!\n";
-    return false;
-}
+//     cout << "Path Not found!\n";
+//     return false;
+// }
 #endif
