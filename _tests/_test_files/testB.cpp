@@ -148,3 +148,77 @@ int main(int argc, char **argv) {
   return RUN_ALL_TESTS();
 }
 
+/*
+
+----------running testB.cpp---------
+
+
+[==========] Running 3 tests from 2 test suites.
+[----------] Global test environment set-up.
+[----------] 1 test from STD_PQ
+[ RUN      ] STD_PQ.test1
+0
+1
+2
+3
+4
+
+
+
+1
+[       OK ] STD_PQ.test1 (1 ms)
+[----------] 1 test from STD_PQ (2 ms total)
+
+[----------] 2 tests from ASTAR
+[ RUN      ] ASTAR.test1
+A*:
+  A   <-   <-   <-   <-    F    F    F    .    .    .    x    x    x    .    .    .    .    .    .  
+ /|   <-    x    x    F    F    F    F   \|   \|    .    x    x    x    .    .    .    .    .    .  
+ /|   <-    x    x    F    F    F   ->   \|   <-    O    x    .    .    .    .    .    .    .    .  
+ /|   /|    x    x   \|   \|   \|   \|   \|   <-   <-    x    .    .    .    .    .    .    .    .  
+ /|   /|   <-   <-   <-   <-   <-   <-   <-   <-   <-    x    x    x    .    .    .    .    .    .  
+ /|   /|   /|   /|   /|   /|    x    x   /|   /|    .    x    x    x    .    .    .    .    .    .  
+  .    .    .    .    .    .    x    x    .    .    .    .    .    .    .    .    .    .    .    .  
+  .    .    .    .    .    .    x    x    .    .    .    .    .    .    .    .    .    .    .    .  
+  .    .    .    .    .    .    x    x    .    .    .    .    .    .    .    .    .    .    .    .  
+  .    .    .    .    .    .    x    x    .    .    .    .    .    .    .    .    .    .    .    .  
+
+
+A* _cost:
+   A   1   2   7  12   .   .   .   .   .   .   X   X   X   .   .   .   .   .   .
+   1   2   X   X   .   .   .   .  15  16   .   X   X   X   .   .   .   .   .   .
+   2   3   X   X   .   .   .  19  14  15   O   X   .   .   .   .   .   .   .   .
+   3   4   X   X  13  14  15  16  13  14  15   X   .   .   .   .   .   .   .   .
+   4   5   6   7   8   9  10  11  12  13  14   X   X   X   .   .   .   .   .   .
+   5   6   7   8   9  10   X   X  13  14   .   X   X   X   .   .   .   .   .   .
+   .   .   .   .   .   .   X   X   .   .   .   .   .   .   .   .   .   .   .   .
+   .   .   .   .   .   .   X   X   .   .   .   .   .   .   .   .   .   .   .   .
+   .   .   .   .   .   .   X   X   .   .   .   .   .   .   .   .   .   .   .   .
+   .   .   .   .   .   .   X   X   .   .   .   .   .   .   .   .   .   .   .   .
+
+
+A* _path:
+  A    .    .    F    F    F    F    F    .    .    .    x    x    x    .    .    .    .    .    .
+  @    .    x    x    F    F    F    F    .    .    .    x    x    x    .    .    .    .    .    .
+  @    @    x    x    F    F    F    F    @    @    O    x    .    .    .    .    .    .    .    .
+  .    @    x    x    F    F    F    F    @    .    .    x    .    .    .    .    .    .    .    .  
+  .    @    @    @    @    @    @    @    @    .    .    x    x    x    .    .    .    .    .    .
+  .    .    .    .    .    .    x    x    .    .    .    x    x    x    .    .    .    .    .    .
+  .    .    .    .    .    .    x    x    .    .    .    .    .    .    .    .    .    .    .    .
+  .    .    .    .    .    .    x    x    .    .    .    .    .    .    .    .    .    .    .    .  
+  .    .    .    .    .    .    x    x    .    .    .    .    .    .    .    .    .    .    .    .
+  .    .    .    .    .    .    x    x    .    .    .    .    .    .    .    .    .    .    .    .
+
+
+[       OK ] ASTAR.test1 (122 ms)
+[ RUN      ] ASTAR.new_graph
+[       OK ] ASTAR.new_graph (0 ms)
+[----------] 2 tests from ASTAR (124 ms total)
+
+[----------] Global test environment tear-down
+[==========] 3 tests from 2 test suites ran. (128 ms total)
+[  PASSED  ] 3 tests.
+
+  YOU HAVE 2 DISABLED TESTS
+
+*/
