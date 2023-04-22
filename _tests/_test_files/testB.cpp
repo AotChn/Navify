@@ -9,6 +9,7 @@ using namespace std;
 #include "../../src\search_algo\breadth\breadth.h"
 #include "../../src\search_algo\dijkstra\dijkstra.h"
 
+//For showing how to use PQueue and std::pair
 TEST(STD_PQ, test1){
 
 	// comparator: greater -> the smaller of the value is
@@ -134,6 +135,11 @@ TEST(ASTAR, test1){
     cout << "A* _path:\n";
     draw_path(graph, came_from, start, goal);
     cout << "\n\n";
+}
+
+TEST(ASTAR, new_graph){
+    
+
 }
 
 int main(int argc, char **argv) {
