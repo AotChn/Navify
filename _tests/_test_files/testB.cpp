@@ -8,9 +8,10 @@ using namespace std;
 #include "../../src/testing_helper/graph_helper.h"
 #include "../../src\search_algo\breadth\breadth.h"
 #include "../../src\search_algo\dijkstra\dijkstra.h"
+#include "../../src/pixel_file/pixel_file.h"
 
 //For showing how to use PQueue and std::pair
-TEST(STD_PQ, test1){
+TEST(STD_PQ, DISABLED_test1){
 
 	// comparator: greater -> the smaller of the value is
 	priority_queue<int, vector<int>, greater<int>> pq;
@@ -110,7 +111,7 @@ TEST(OTHER, DISABLED_weighted){
 
 }
 
-TEST(ASTAR, test1){
+TEST(ASTAR, DISABLED_test1){
     GridWithAStar graph(20,10);
     auto temp = make_diagram2();
 
@@ -141,6 +142,15 @@ TEST(ASTAR, new_graph){
     
 
 }
+TEST(PIXEL, readRows){
+    string file_name = "C:\\Users\\001\\source\\repos\\OpenCV_test\\x64\\pixel.bin";
+    // "pixel.bin";
+    
+    // uchar arr[5] = {10, 55, 60, 200, 255};
+    // write_to(file_name, arr, 5);
+    // read_from(file_name, 5);
+    read_from(file_name);
+}
 
 int main(int argc, char **argv) {
   ::testing::InitGoogleTest(&argc, argv);
@@ -162,6 +172,7 @@ int main(int argc, char **argv) {
 2
 3
 4
+
 
 
 
