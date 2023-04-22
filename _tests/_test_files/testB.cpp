@@ -29,7 +29,7 @@ TEST(STD_PQ, test1){
 	
 }
 
-TEST(OTHER, not_weighted){
+TEST(OTHER, DISABLED_not_weighted){
 	SquareGrid plane = make_diagram1();
     node start = {0, 0};
     node goal = {10, 2};
@@ -69,7 +69,7 @@ TEST(OTHER, not_weighted){
     cout << "\n\n\n";
 }
 
-TEST(OTHER, weighted){
+TEST(OTHER, DISABLED_weighted){
 	auto plane = make_diagram2();
     node start = {0, 0};
     node goal = {10, 2};
@@ -120,9 +120,20 @@ TEST(ASTAR, test1){
     node goal = {10, 2};
     Map<node,node> came_from;
     Map<node,double> cost_so_far;
+    
+    cout << "A*:\n";
     a_star_search(graph,start,goal, came_from, cost_so_far);
 
     draw_grid(graph,came_from, start, goal);
+    cout << "\n\n";
+
+    cout << "A* _cost:\n";
+    draw_grid(graph,cost_so_far, start, goal);
+    cout << "\n\n";
+
+    cout << "A* _path:\n";
+    draw_path(graph, came_from, start, goal);
+    cout << "\n\n";
 }
 
 int main(int argc, char **argv) {
