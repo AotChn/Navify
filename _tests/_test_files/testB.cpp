@@ -3,12 +3,15 @@
 #include <iomanip>
 using namespace std;
 
-#include "../../src\search_algo\a_star.h"
+#include "../../src/search_algo/a_star.h"
 
 #include "../../src/testing_helper/graph_helper.h"
-#include "../../src\search_algo\breadth\breadth.h"
-#include "../../src\search_algo\dijkstra\dijkstra.h"
-#include "../../src/pixel_file/pixel_file.h"
+#include "../../src/search_algo/breadth/breadth.h"
+#include "../../src/search_algo/dijkstra/dijkstra.h"
+#include "../../src/search_algo/Algo.hpp"
+#include "../../src/testing_helper/new_graph_helper.h"
+
+// #include "../../src/pixel_file/pixel_file.h"
 
 //For showing how to use PQueue and std::pair
 TEST(STD_PQ, DISABLED_test1){
@@ -143,13 +146,28 @@ TEST(ASTAR, new_graph){
 
 }
 TEST(PIXEL, readRows){
-    string file_name = "C:\\Users\\001\\source\\repos\\OpenCV_test\\x64\\pixel.bin";
+    // string file_name = "C:\\Users\\001\\source\\repos\\OpenCV_test\\x64\\pixel.bin";
     // "pixel.bin";
     
     // uchar arr[5] = {10, 55, 60, 200, 255};
     // write_to(file_name, arr, 5);
     // read_from(file_name, 5);
-    read_from(file_name);
+    // read_from(file_name);
+}
+
+TEST(NEWG, new_graph){
+  auto graph = make_newGraph();
+  graph.set_threshold(20);
+  node start = {0, 0};
+  node goal = {10, 2};
+  Map<node,node> parent;
+  Map<node,double> cost_so_far;
+
+  a_star_search<node, Graph<pixel,node>>(graph, start, goal, parent,cost_so_far);
+  auto temp = make_diagram2();
+
+  get_path(parent, start,goal);
+  draw_path(temp, parent, start, goal);
 }
 
 int main(int argc, char **argv) {

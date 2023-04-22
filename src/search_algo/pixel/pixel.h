@@ -4,8 +4,8 @@
 
 struct pixel
 {
-    double cost;
-    int color;
+    double cost = 1;
+    int color = 255;
 };
 
 

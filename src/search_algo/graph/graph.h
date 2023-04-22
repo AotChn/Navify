@@ -26,6 +26,9 @@ struct SquareGrid {
         return !walls.contains(id);
     }
 
+    bool is_valid(node id) const{
+        return in_bounds(id) && passable(id);
+    }
     vectornode neighbors(node id) const {
         vectornode results;
 
