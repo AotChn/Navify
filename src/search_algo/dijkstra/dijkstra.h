@@ -6,11 +6,13 @@
 
 using namespace std;
 
+
 Map<node,node> dijkstra_search(GridWithWeights& graph, node start, node goal){
     typedef pair<double,node> pqelement;
     priority_queue<pqelement, std::vector<pqelement>, greater<pqelement>> frontier;
     frontier.emplace(pqelement{0,start});
     Map<node,node> came_from;
+
     Map<node, double> cost_so_far;
     
     
@@ -20,6 +22,8 @@ Map<node,node> dijkstra_search(GridWithWeights& graph, node start, node goal){
 
     while (!frontier.empty())
     {   
+        // cout << "current_p : " << frontier.top().first << "from: " << frontier.top().second << endl;
+
         node current = frontier.top().second;
         frontier.pop();
 
@@ -27,7 +31,6 @@ Map<node,node> dijkstra_search(GridWithWeights& graph, node start, node goal){
 
         for(node next : graph.neighbors(current)){
             double new_cost = cost_so_far[current] + graph.cost(current, next);
-
             if(!came_from.contains(next) || new_cost < cost_so_far[next])
             {
                 cost_so_far[next] = new_cost;

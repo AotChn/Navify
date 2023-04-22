@@ -4,6 +4,7 @@
 using namespace std;
 
 #include "../../src\search_algo\a_star.h"
+
 #include "../../src/testing_helper/graph_helper.h"
 #include "../../src\search_algo\breadth\breadth.h"
 #include "../../src\search_algo\dijkstra\dijkstra.h"
@@ -108,6 +109,21 @@ TEST(OTHER, weighted){
 
 }
 
+TEST(ASTAR, test1){
+    GridWithAStar graph(20,10);
+    auto temp = make_diagram2();
+
+    graph.walls = temp.walls;
+    graph.forests = temp.forests;
+    
+    node start = {0, 0};
+    node goal = {10, 2};
+    Map<node,node> came_from;
+    Map<node,double> cost_so_far;
+    a_star_search(graph,start,goal, came_from, cost_so_far);
+
+    draw_grid(graph,came_from, start, goal);
+}
 
 int main(int argc, char **argv) {
   ::testing::InitGoogleTest(&argc, argv);

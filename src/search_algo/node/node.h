@@ -2,7 +2,6 @@
 #define NODE_H
 
 #include <iostream>
-#include "..\constants.h"
 
 
 using namespace std;

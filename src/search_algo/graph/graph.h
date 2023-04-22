@@ -43,6 +43,8 @@ struct SquareGrid {
     return results;
   }
 };
+
+
 struct GridWithWeights: SquareGrid 
 {  
     Map<node, long> forests;
@@ -50,6 +52,13 @@ struct GridWithWeights: SquareGrid
     GridWithWeights(int w, int h): SquareGrid(w, h) {}
     double cost(node from_node, node to_node) const {
         return forests.contains(to_node) ? 5 : 1;
+    }
+};
+struct GridWithAStar: GridWithWeights
+{
+    GridWithAStar(int w, int h): GridWithWeights(w, h) {}
+    double heuristic(node a, node b){
+        return std::abs(a.x - b.x) + std::abs(a.y - b.y);
     }
 };
 
