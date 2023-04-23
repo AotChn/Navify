@@ -27,6 +27,7 @@ bool operator <(const node& lhs, const node& rhs){
  bool operator +=(node& lhs, const node& rhs){
     lhs.x += rhs.x;
     lhs.y += rhs.y;
+    return true;
  }
 
 

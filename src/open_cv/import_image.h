@@ -27,11 +27,12 @@ pixel** read_image(string image_name, int& rows, int& cols) {
     rows = img.rows;
     cols = img.cols;
 
-    uchar** imageData = new uchar* [rows];
+    pixel** imageData = new pixel* [rows];
     for (int i = 0; i < rows; ++i) {
-        imageData[i] = new uchar[cols];
+        imageData[i] = new pixel[cols];
         for (int j = 0; j < cols; ++j) {
-            imageData[i][j] = (img.at<uchar>(i, j));
+            imageData[i][j].color = (img.at<uchar>(i, j));
+            imageData[i][j].cost = 1;
         }
 
     }

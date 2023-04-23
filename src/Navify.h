@@ -1,16 +1,17 @@
 #ifndef NAVIFY_H
 #define NAVIFY_H
 
-#include "open_cv/import_image.h"
+// #include "open_cv/import_image.h"
 #include "search_algo/Algo.hpp"
 #include <tuple>
+#include "testing_helper/graph_helper.h"
 // #include <opencv2/opencv.hpp>
 using namespace std;
 
 class Navify{
 public:
     bool import_image(string image_name);
-    bool run(node start_ = start, node goal_ = goal);
+    bool run();
     void display();
 
     void set_start(node src){start = src;}
