@@ -13,7 +13,7 @@ struct node
     friend bool  operator ==(const node& lhs, const node& rhs);
 
     friend bool operator <=(const node& lhs, const node& rhs);
-    friend bool operator +=(const node& lhs, const node& rhs);
+    friend bool operator +=(node& lhs, const node& rhs);
     friend ostream& operator <<(ostream& outs, const node& me);
 
     friend node operator -(const node& lhs, const node& rhs);

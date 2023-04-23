@@ -22,9 +22,13 @@ struct SquareGrid {
     bool passable(node id) const {
         // cout << "called passable\n";
         // cout << walls <<endl;
+        // return picture[x][y] < threshhold;
         return !walls.contains(id);
     }
 
+    bool is_valid(node id) const{
+        return in_bounds(id) && passable(id);
+    }
     vectornode neighbors(node id) const {
         vectornode results;
 
