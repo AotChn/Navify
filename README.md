@@ -1,4 +1,4 @@
-# `Navify` 
+# Navify 
 ## The Intellegent Navigational System
 
 capable of guiding user you their destination in a simple user-friendly manner
