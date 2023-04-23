@@ -9,9 +9,11 @@ capable of guiding user you their destination in a simple user-friendly manner
 ![Navify][internal-source]
 
 [internal-source]: /resources/navify_web_app.png 'Navify'
+<img width="1362" alt="before1" src="resources/before1.png">
+<img width="1362" alt="after1" src="resources/after1.png">
 
 Demo Trailer: 
-< # placeholder youtube video> 
+<https://youtu.be/ss9jFM32Tdg> 
 
 ## Supported Features
 
