@@ -2,13 +2,13 @@
 bool Navify::import_image(string image_name){
     _image_name = image_name;
     int c, r;
-    // pixel** arr = read_image(image_name,r,c);
-    // if(arr == nullptr){
-    //     return false;
-    // }
+    pixel** arr = read_image(image_name,r,c);
+    if(arr == nullptr){
+        return false;
+    }
 
-    // _Grayed_graph.clear();
-    // _Grayed_graph.shallow_setter(arr, c, r);
+    _Grayed_graph.clear();
+    _Grayed_graph.shallow_setter(arr, c, r);
 
     if(!_Grayed_graph.is_vaild()){
         cout << "[Debug] : [Navify::import_image] : graph is invalid evethoug image is read\n";
@@ -25,8 +25,6 @@ bool Navify::run(){
     Map<node, node> parent;
     Map<node, double> cost_so_far;
 
-
-
     a_star_search<node, graph>(_Grayed_graph, start,goal, parent,cost_so_far);
     get<1>(path) = get_path(parent, start, goal);
     get<0>(path) = {start, goal};
@@ -37,12 +35,11 @@ void Navify::display(){
         cout << "Last import fail, so following image is from: " << get<2>(path) <<endl;
     }
 
-    // cv::Mat img = cv::imread(get<2>(path));
-    // if (img.empty()) {
-    //     std::cerr << "Error: Could not read image file" << std::endl;
-    //     return nullptr;
-    // }
-    
+     cv::Mat img = cv::imread(get<2>(path));
+     if (img.empty()) {
+         std::cerr << "Error: Could not read image file" << std::endl;
+         return;
+     }
 
     node DIR[] = {
     //N                    NE                E              ES
@@ -51,9 +48,22 @@ void Navify::display(){
     //S                    SW                W               WN
    };
 
-    for(auto it = get<1>(path).begin(); it != get<1>(path).end(); ++it){
-        // img.at((*it).key.x, (*it).key.y) = 255;
+    node current = get<0>(path).first;
+    while (!(current == get<0>(path).second)) {
+            img.at<Vec3b>(current.y, current.x) = { 255,0,0 };
+
+ /*        for (auto x : DIR) {
+             if (!_Grayed_graph.in_bounds(current + x))
+                 continue;
+             auto t = current + x;
+             img.at<Vec3b>(t.y, t.x) = { 255,0,0 };
+
+
+          }*/
+             current = get<1>(path)[current];
     }
 
-    // imshow("diedie", img);
+    imshow("diedie", img);
+    waitKey(0);
+
 }
