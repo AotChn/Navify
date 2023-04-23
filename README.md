@@ -1,99 +1,70 @@
-# Navify 
-## The Intellegent Navigational System
+# Getting Started with Create React App
 
-capable of guiding user you their destination in a simple user-friendly manner
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-**built using**  `c++` , `react`, `opencv`, `firebase`, `sfml`
+## Available Scripts
 
+In the project directory, you can run:
 
-![Navify][internal-source]
+### `npm start`
 
-[internal-source]: /resources/navify_web_app.png 'Navify'
-<img width="1362" alt="before1" src="resources/before1.png">
-<img width="1362" alt="after" src="resources/after.png">
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-Demo Trailer: 
-<https://youtu.be/ss9jFM32Tdg> 
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-## Supported Features
+### `npm test`
 
-Format | Supported
------------- | -------------
-.png| YES
-.jpeg | YES
-.jpg | YES
-iphone | YES
- android| YES
-paper | YES
-toilet paper | YES
-Handwritten | YES
-Computer Generated| YES
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
+### `npm run build`
 
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-## Intructions to `USE` program on `any image` (C++)
-- clone repository into desired dir
-```
-git clone https://github.com/AotChn/Navify.git
-```
-- build project in visual code or IDE
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-- place desired map image into same dir
-- create a `Navify` object and set threshold
-```C++
-Navify v;
-Navify::graph::set_threshold(150);
-```
-- import image
-```C++
-   v.import_image("image_name");
-```
-- set start and end coords 
-```C++
-   v.set_start(node{0,0});
-   v.set_end(node{1100, 600});
-```
-- finally we are all set to `run` the program! 
-## Call in `Main()`
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-```C++
-int main() {
+### `npm run eject`
 
-   Navify v;
-   Navify::graph::set_threshold(150);
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-   v.import_image("image_name");
-   v.set_start(node{0,0});
-   v.set_end(node{1100, 600});
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-   run();
-   v.display();
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-   return 0;
-}
-```
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Bugs/issues
-- Certain cases gives suppar paths
-- Unconnected frontend and backend
-- C++ -> firebase conflict
+## Learn More
 
-## What To Expect Next 
-- Full workable web-app
-- mobile deployment
-- more robust maps
-- Increased amount of preset maps 
-- Hearing Acessiblities
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-</br></br>
+To learn React, check out the [React documentation](https://reactjs.org/).
 
+### Code Splitting
 
-```
-Contributors:
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-   Aot Chanthorn
-   ChungYin Lee
-   Dennis Gavrilenko
-   Mahir Anand
+### Analyzing the Bundle Size
 
-```
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
