@@ -10,7 +10,7 @@ capable of guiding user you their destination in a simple user-friendly manner
 
 [internal-source]: /resources/navify_web_app.png 'Navify'
 <img width="1362" alt="before1" src="resources/before1.png">
-<img width="1362" alt="after" src="resources/after1.png">
+<img width="1362" alt="after" src="resources/after.png">
 
 Demo Trailer: 
 <https://youtu.be/ss9jFM32Tdg> 
