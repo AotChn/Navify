@@ -35,7 +35,7 @@ double Graph<graph_t, node_t>::cost(node_t from_node, node_t to_node) const {
 }
 
 template <class graph_t, class node_t>
-double Graph<graph_t, node_t>::heuristic(node_t a, node_t b){
+double Graph<graph_t, node_t>::heuristic(node_t a, node_t b)const {
     // return std::abs(a.x - b.x) + std::abs(a.y - b.y);  only move 4 Direction
     return sqrt(double(abs(a.x - b.x) * abs(a.x - b.x) + abs(a.y - b.y) * abs(a.y - b.y)));
 }
