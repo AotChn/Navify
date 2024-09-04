@@ -1,11 +1,11 @@
 #ifndef NAVIFY_H
 #define NAVIFY_H
 
-// #include "open_cv/import_image.h"
+#include "open_cv/import_image.h"
 #include "search_algo/Algo.hpp"
 #include <tuple>
 #include "testing_helper/graph_helper.h"
-// #include <opencv2/opencv.hpp>
+#include <opencv2/opencv.hpp>
 using namespace std;
 
 class Navify{

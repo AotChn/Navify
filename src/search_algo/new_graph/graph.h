@@ -47,7 +47,7 @@ public:
         height = h;
     }
     static void set_threshold(int t);
-private:
+
     void clear(){
         // cout << "b\n";
         if(_grid == nullptr) {

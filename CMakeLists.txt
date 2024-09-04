@@ -2,13 +2,11 @@ cmake_minimum_required(VERSION "3.24")
 
 project(Aots-opencv)
 
-set(OpenCV_DIR /path/to/opencv/install/lib/cmake/opencv4)
-
 set(CMAKE_CXX_STANDARD 14)
 
+set(OpenCV_DIR /usr/local/Cellar/opencv/lib/cmake/opencv4)
+find_package( OpenCV REQUIRED )
 include_directories( ${OpenCV_INCLUDE_DIRS} )
-
-
 #. . . . . . . . . . . . . . . . . . . .
 include(GNUInstallDirs)
 if(MSVC)
@@ -24,14 +22,6 @@ endif()
 
 
 # place binaries and libraries according to GNU standards
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_LIBDIR})
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_LIBDIR})
-
-find_package( OpenCV REQUIRED )
-
-# tell the build to include the headers from OpenCV
-include_directories( ${OpenCV_INCLUDE_DIRS} )
-
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_LIBDIR})
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_LIBDIR})
 
